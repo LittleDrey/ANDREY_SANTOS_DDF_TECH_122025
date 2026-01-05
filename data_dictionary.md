@@ -102,3 +102,26 @@ Base de CEPs x Lat/Long (Essencial para mapas e cálculo de rotas).
 | `geolocation_state` | String | Estado. |
 | `dt_ingestao` | Timestamp | Data e hora da ingestão do registro. |
 | `arquivo_origem` | String | Nome do arquivo CSV de origem. |
+
+## 8. Tabela: `order_payments` (Pagamentos)
+Detalhes financeiros dos pedidos. Um pedido pode ter múltiplos pagamentos (ex: 2 cartões ou voucher + cartão).
+
+| Coluna | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `order_id` | String | FK para a tabela de pedidos. |
+| `payment_sequential` | Integer | Sequência do pagamento (caso haja mais de um meio de pagamento). |
+| `payment_type` | String | Método de pagamento (credit_card, boleto, voucher, debit_card). |
+| `payment_installments` | Integer | Quantidade de parcelas escolhidas. |
+| `payment_value` | Double | Valor transacionado neste método. |
+| `dt_ingestao` | Timestamp | Data e hora da ingestão do registro. |
+| `arquivo_origem` | String | Nome do arquivo CSV de origem. |
+
+## 9. Tabela: `product_category_name_translation` (Tradução de Categorias)
+Tabela auxiliar para tradução das categorias de produtos (PT-BR -> EN).
+
+| Coluna | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `product_category_name` | String | Nome da categoria em Português (Chave de ligação com Products). |
+| `product_category_name_english` | String | Nome da categoria traduzido para Inglês. |
+| `dt_ingestao` | Timestamp | Data e hora da ingestão do registro. |
+| `arquivo_origem` | String | Nome do arquivo CSV de origem. |
