@@ -104,6 +104,6 @@ Para viabilizar a análise no Power BI, os dados foram reestruturados em um **Mo
 ## 📦 Como reproduzir
 
 1.  Clone este repositório.
-2.  Importe os notebooks da pasta `/src` para seu Workspace Databricks.
+2.  Importe os notebooks da pasta `/notebooks` para seu Workspace Databricks.
 3.  Carregue os datasets da Olist no Volume `staging_zone_olist`.
 4.  Execute os pipelines na ordem: Bronze -> Quality -> Silver -> GenAI -> Gold.
