@@ -122,3 +122,6 @@ WHERE v.sentimento_ia IS NOT NULL
   AND v.sentimento_ia <> 'Não Analisado' 
 ORDER BY v.nr_nota_review ASC 
 LIMIT 15;
+
+<img width="882" height="447" alt="image" src="https://github.com/user-attachments/assets/0b8a5bf6-eac1-40e4-8572-4c8f89ddc4f4" />
+
