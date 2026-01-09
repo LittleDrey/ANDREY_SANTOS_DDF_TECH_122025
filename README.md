@@ -122,7 +122,7 @@ WHERE v.sentimento_ia IS NOT NULL
   AND v.sentimento_ia <> 'Não Analisado' 
 ORDER BY v.nr_nota_review ASC 
 LIMIT 15;
-
+```
 ### Resultado da Execução:
 ![Resultado Query SQL](./docs/prints/Resultado_Query.png)
 
