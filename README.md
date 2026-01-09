@@ -12,7 +12,7 @@ O pipeline de dados foi construído seguindo as melhores práticas de Lakehouse,
 2.  **Data Quality:** Perfilamento de dados com `Sweetviz` para identificação de anomalias.
 3.  **Camada Silver:** Limpeza, padronização, tradução e tipagem dos dados.
 4.  **Enriquecimento com IA:** Análise de sentimento de avaliações usando LLMs (Google Gemini).
-5.  **Camada Gold:** Modelagem dimensional (Star Schema) para consumo em Power BI.
+5.  **Camada Gold:** Modelagem dimensional (Galaxy Schema) para consumo em Power BI.
 
 ---
 
@@ -24,6 +24,7 @@ O pipeline de dados foi construído seguindo as melhores práticas de Lakehouse,
 * **Generative AI:** Google Gemini API (Models: 1.5 Flash / 2.0 Flash Lite).
 * **Data Quality:** Sweetviz.
 * **Orchestration:** Databricks Notebooks (Modularizados).
+* **Visualization:** Microsoft Power BI.
 
 ---
 
@@ -86,24 +87,38 @@ Os relatórios detalhados gerados pelo Sweetviz estão disponíveis na pasta `do
 
 ## 5. Modelagem Dimensional (Camada Gold)
 
-Para viabilizar a análise no Power BI, os dados foram reestruturados em um **Modelo Estrela (Star Schema)** híbrido.
+Para viabilizar a análise no Power BI, os dados foram reestruturados em um **Galaxy Schema** (Constelação), permitindo o cruzamento de fatos com granularidades distintas.
 
 ### Dimensões (`dim_`)
 * **`dim_calendario`:** Gerada via código PySpark (2016-2020), replicando lógica DAX para suporte a Time Intelligence em Português.
-* **`dim_clientes`:** Enriquecida com Latitude/Longitude média (agrupada por CEP) para mapas de calor.
+* **`dim_clientes`:** Enriquecida com Latitude/Longitude média (agrupada por CEP) para permitir mapas de calor (Heatmaps).
 * **`dim_vendedores`:** Enriquecida com Latitude/Longitude.
 * **`dim_produtos`:** Enriquecida com a tradução das categorias (Português -> Inglês).
-* **`dim_pedidos` (Bridge Table):** Tabela de ponte contendo o cabeçalho do pedido. Resolve a cardinalidade N:N entre Vendas e Pagamentos.
+* **`dim_pedidos` (Bridge Table):** Tabela de ponte contendo o cabeçalho do pedido. Resolve a cardinalidade N:N entre Vendas e Pagamentos, atuando como o elemento centralizador do modelo.
 
 ### Fatos (`fct_`)
 * **`fct_vendas`:** Granularidade no **Item do Pedido**. Contém métricas de receita, frete, prazos de entrega (Lead Time) e o sentimento da IA.
 * **`fct_pagamentos`:** Granularidade no **Pagamento**. Separada para evitar a duplicação de receita (Fan Trap) em pedidos com múltiplos meios de pagamento.
 
+![Diagrama do Modelo de Dados](./docs/prints/diagrama_modelo.png)
+
 ---
 
-## 📦 Como reproduzir
+## 6. Query de Validação de Negócio (Item 7 do Case)
 
-1.  Clone este repositório.
-2.  Importe os notebooks da pasta `/notebooks` para seu Workspace Databricks.
-3.  Carregue os datasets da Olist no Volume `staging_zone_olist`.
-4.  Execute os pipelines na ordem: Bronze -> Quality -> Silver -> GenAI -> Gold.
+Para validar a eficácia do enriquecimento com IA, foi executada uma query analítica na camada Gold cruzando a **Nota do Cliente** (Dado Estruturado) com o **Sentimento da IA** (Dado Desestruturado).
+
+```sql
+-- Query de Validação do Enriquecimento com IA (Camada Gold)
+SELECT 
+    p.desc_categoria_pt AS Categoria,
+    v.id_pedido,
+    v.nr_nota_review AS Nota_Cliente,
+    v.sentimento_ia AS Classificacao_IA,
+    v.vl_total_item AS Valor_Venda
+FROM workspace_ecommerce.gold.fct_vendas v
+INNER JOIN workspace_ecommerce.gold.dim_produtos p ON v.id_produto = p.id_produto
+WHERE v.sentimento_ia IS NOT NULL 
+  AND v.sentimento_ia <> 'Não Analisado' 
+ORDER BY v.nr_nota_review ASC 
+LIMIT 15;
