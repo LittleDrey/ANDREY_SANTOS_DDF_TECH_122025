@@ -90,7 +90,7 @@ Os relatórios detalhados gerados pelo Sweetviz estão disponíveis na pasta `do
 Para viabilizar a análise no Power BI, os dados foram reestruturados em um **Galaxy Schema** (Constelação), permitindo o cruzamento de fatos com granularidades distintas.
 
 ### Dimensões (`dim_`)
-* **`dim_calendario`:** Gerada via código PySpark (2016-2020), replicando lógica DAX para suporte a Time Intelligence em Português.
+* **`dim_calendario`:** Gerada via código PySpark (2015-2020), replicando lógica DAX para suporte a Time Intelligence em Português.
 * **`dim_clientes`:** Enriquecida com Latitude/Longitude média (agrupada por CEP) para permitir mapas de calor (Heatmaps).
 * **`dim_vendedores`:** Enriquecida com Latitude/Longitude.
 * **`dim_produtos`:** Enriquecida com a tradução das categorias (Português -> Inglês).
