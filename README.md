@@ -104,7 +104,7 @@ Para viabilizar a análise no Power BI, os dados foram reestruturados em um **Ga
 
 ---
 
-## 6. Query de Validação de Negócio (Item 7 do Case)
+## 6. Query de Validação de Negócio
 
 Para validar a eficácia do enriquecimento com IA, foi executada uma query analítica na camada Gold cruzando a **Nota do Cliente** (Dado Estruturado) com o **Sentimento da IA** (Dado Desestruturado).
 
