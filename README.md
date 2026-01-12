@@ -140,7 +140,7 @@ Para garantir a atualização automática e sequencial dos dados, foi criado um 
 5.  `Modelagem_Gold` (Carga para BI)
 
 ### Evidência de Execução com Sucesso:
-![Pipeline Databricks](./docs/prints/pipeline_execucao.png)
+![Pipeline Databricks](./docs/prints/Execucao_Pipeline.png)
 
 > **Metric:** Tempo total de execução para carga completa (Full Load): **~10 minutos**.
 
