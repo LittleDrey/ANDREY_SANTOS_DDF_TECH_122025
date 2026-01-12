@@ -126,3 +126,21 @@ LIMIT 15;
 ### Resultado da Execução:
 ![Resultado Query SQL](./docs/prints/Resultado_Query.png)
 
+---
+
+## 8. Orquestração de Pipelines (Data Ops)
+
+Para garantir a atualização automática e sequencial dos dados, foi criado um **Workflow no Databricks Jobs**. O pipeline orquestra a execução dos 5 notebooks, garantindo que a camada Silver só inicie após o sucesso da Bronze e da verificação de Qualidade.
+
+**Fluxo de Execução:**
+1.  `Ingestão_Bronze` (Extração)
+2.  `Data_Quality` (Validação)
+3.  `Transformacao_Silver` (Limpeza)
+4.  `Enriquecimento_IA` (Inferência)
+5.  `Modelagem_Gold` (Carga para BI)
+
+### Evidência de Execução com Sucesso:
+![Pipeline Databricks](./docs/prints/pipeline_execucao.png)
+
+> **Metric:** Tempo total de execução para carga completa (Full Load): **~10 minutos**.
+
