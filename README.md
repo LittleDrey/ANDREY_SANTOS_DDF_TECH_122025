@@ -144,3 +144,17 @@ Para garantir a atualização automática e sequencial dos dados, foi criado um 
 
 > **Metric:** Tempo total de execução para carga completa (Full Load): **~10 minutos**.
 
+---
+
+## 9. Data App (Streamlit)
+
+Como entrega de valor rápido (*Quick Win*), foi desenvolvido um aplicativo interativo utilizando **Streamlit** e **Plotly**. Este app permite que stakeholders explorem os dados sem necessidade de acesso ao Power BI ou Databricks, garantindo democratização do acesso à informação.
+
+* **Arquitetura:** Serverless. O app lê os dados da camada Gold exportados (CSV/ZIP) diretamente do repositório GitHub, eliminando custos de computação em nuvem para visualização.
+* **Funcionalidades:** Filtros dinâmicos por período e categoria, KPIs em tempo real, gráficos interativos e tratativas de erro robustas.
+
+🔗 **Acesse a aplicação ao vivo:** [Streamlit Dashboard Olist](https://andreysantosddftech122025-37xodvmcnvqvmn2wxr78vq.streamlit.app)
+
+![Streamlit App](./docs/prints/streamlit_dashboard.png)
+
+---
