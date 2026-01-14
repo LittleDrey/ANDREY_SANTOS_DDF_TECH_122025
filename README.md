@@ -155,6 +155,6 @@ Como entrega de valor rápido (*Quick Win*), foi desenvolvido um aplicativo inte
 
 🔗 **Acesse a aplicação ao vivo:** [Streamlit Dashboard Olist](https://andreysantosddftech122025-37xodvmcnvqvmn2wxr78vq.streamlit.app)
 
-![Streamlit App](./docs/prints/streamlit_dashboard.png)
+![Streamlit App](./docs/prints/.png)
 
 ---
