@@ -128,6 +128,42 @@ LIMIT 15;
 
 ---
 
+## 7. Visualização de Dados (Dashboard Corporativo)
+
+O Dashboard final foi desenvolvido no **Microsoft Power BI**, projetado com foco em **UX (User Experience)** para facilitar a tomada de decisão.
+
+### 🧭 Navegação e Usabilidade
+A interface utiliza um **Menu Lateral Vertical** baseado em ícones intuitivos, permitindo que o usuário alterne rapidamente entre os contextos de negócio (Vendas, Sazonalidade, Logística e IA).
+* **Painel de Filtros:** Integrado à barra lateral (expansível), permitindo segmentar todas as páginas simultaneamente por Período, Estado e Categoria.
+* **Design:** Tema escuro (*Dark Mode*) para conforto visual em telas de monitoramento e alto contraste para métricas críticas.
+
+---
+
+### 🏠 1. Performance de Vendas (Home)
+Visão executiva (C-Level) com os principais KPIs de receita e volume.
+* **Destaques:** Comparativo YoY (Year over Year) para identificar crescimento real e ranking de categorias.
+![Visão Geral](./docs/prints/home.png)
+
+### 📅 2. Sazonalidade e Calendário
+Análise granular para identificar padrões de consumo.
+* **Funcionalidade:** Drill-down permitindo visão por Dia da Semana e Hora do Dia. Essencial para planejamento de campanhas de marketing e alocação de servidores.
+![Análise Temporal](./docs/prints/calendario.png)
+
+### 🚚 3. Performance Logística
+Monitoramento da eficiência operacional e custos de frete.
+* **Análises:** SLA de entrega (No Prazo vs Atrasado), dispersão de Custo x Prazo por região e mapa de calor dos gargalos logísticos.
+![Logística](./docs/prints/logistica.png)
+
+### 🤖 4. Análise de Sentimento (GenAI)
+Uso de Inteligência Artificial para auditar a qualidade percebida pelo cliente (CSAT) além da nota numérica.
+
+> **Nota de Arquitetura (Amostragem):** Para fins de demonstração técnica (PoC) e respeito aos limites de custo da API de LLM (Google Gemini), a análise de sentimento foi aplicada em uma **amostra estatística** do dataset. O pipeline está preparado para escalar para 100% dos dados mediante provisionamento de chaves de produção (Paid Tier).
+
+* **Insights:** Cruzamento entre *Nota do Review* vs *Sentimento da IA* para identificar ironias ou inconsistências na avaliação do cliente.
+![Sentimento IA](./docs/prints/analise de IA.png)
+
+---
+
 ## 8. Orquestração de Pipelines (Data Ops)
 
 Para garantir a atualização automática e sequencial dos dados, foi criado um **Workflow no Databricks Jobs**. O pipeline orquestra a execução dos 5 notebooks, garantindo que a camada Silver só inicie após o sucesso da Bronze e da verificação de Qualidade.
