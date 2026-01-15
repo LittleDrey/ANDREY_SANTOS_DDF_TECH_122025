@@ -141,7 +141,8 @@ A interface utiliza um **Menu Lateral Vertical** baseado em ícones intuitivos, 
 
 ### 🏠 1. Performance de Vendas (Home)
 Visão executiva (C-Level) com os principais KPIs de receita e volume.
-* **Destaques:** Comparativo YoY (Year over Year) para identificar crescimento real e ranking de categorias.
+* **Destaques:** Comparativo YoY (Year over Year) para identificar crescimento real e ranking de categorias e tooltip para identificar o melhor/pior mês de venda de cada categoria de produto.
+  
 ![Visão Geral](./docs/prints/home.png)
 
 ### 📅 2. Sazonalidade e Calendário
