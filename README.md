@@ -164,7 +164,7 @@ Uso de Inteligência Artificial para auditar a qualidade percebida pelo cliente 
 
 * **Insights:** Cruzamento entre *Nota do Review* vs *Sentimento da IA* para identificar ironias ou inconsistências na avaliação do cliente.
   
-![Sentimento IA](./docs/prints/analiseIA.png).
+![Sentimento IA](./docs/prints/analiseIA.png)
 
 ---
 
