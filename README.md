@@ -1,3 +1,8 @@
+> ⚠️ **Nota sobre o Case:**
+> Seguindo a instrução do edital de *"trazer soluções que você entenda muito bem"* e a cláusula de *"Ambientes provisionados em outras Cloud serão avaliados como BÔNUS"*, optei por desenvolver este case utilizando uma **Modern Data Stack (MDS)** robusta baseada em **Azure Databricks, Delta Lake e Power BI**.
+>
+> Esta abordagem demonstra minha proficiência técnica em Engenharia de Dados "Hard Code" (Spark/Python/SQL), Governança de Lakehouse e Integração de Clouds, atendendo aos requisitos de conhecimento em Programação, Cloud e Machine Learning solicitados na vaga.
+
 # 🛒 Brazilian E-Commerce Data Engineering Project (Olist)
 
 Este projeto apresenta uma solução completa de Engenharia de Dados (End-to-End) utilizando a arquitetura **Medallion (Bronze, Silver, Gold)** no Databricks. O objetivo é transformar dados brutos de e-commerce em insights de negócio, enriquecidos com Inteligência Artificial Generativa.
