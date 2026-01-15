@@ -147,12 +147,14 @@ Visão executiva (C-Level) com os principais KPIs de receita e volume.
 
 ### 📅 2. Sazonalidade e Calendário
 Análise granular para identificar padrões de consumo.
-* **Funcionalidade:** Drill-down permitindo visão por Dia da Semana e Hora do Dia. Essencial para planejamento de campanhas de marketing e alocação de servidores.
+* **Funcionalidade:** Drill-down permitindo visão por Dia da Semana e Hora do Dia juntamente com um botão seletor de métricas para análises específicas de KPI's. Essencial para planejamento de campanhas de marketing e alocação de servidores.
+  
 ![Análise Temporal](./docs/prints/calendario.png)
 
 ### 🚚 3. Performance Logística
 Monitoramento da eficiência operacional e custos de frete.
 * **Análises:** SLA de entrega (No Prazo vs Atrasado), dispersão de Custo x Prazo por região e mapa de calor dos gargalos logísticos.
+  
 ![Logística](./docs/prints/logistica.png)
 
 ### 🤖 4. Análise de Sentimento (GenAI)
@@ -161,6 +163,7 @@ Uso de Inteligência Artificial para auditar a qualidade percebida pelo cliente 
 > **Nota de Arquitetura (Amostragem):** Para fins de demonstração técnica (PoC) e respeito aos limites de custo da API de LLM (Google Gemini), a análise de sentimento foi aplicada em uma **amostra estatística** do dataset. O pipeline está preparado para escalar para 100% dos dados mediante provisionamento de chaves de produção (Paid Tier).
 
 * **Insights:** Cruzamento entre *Nota do Review* vs *Sentimento da IA* para identificar ironias ou inconsistências na avaliação do cliente.
+  
 ![Sentimento IA](./docs/prints/analise de IA.png)
 
 ---
